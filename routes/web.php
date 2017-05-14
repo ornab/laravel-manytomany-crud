@@ -44,3 +44,51 @@ Route::get('/read', function(){
     
     
 });
+
+Route::get('/update', function(){
+    
+    
+    $user = User::findOrFail(1);
+    
+    if($user->has('roles')){
+        
+        foreach($user->roles as $role){
+            
+            if($role->name == 'Subscriber'){
+                
+                $role->name = 'subscriber';
+                
+                $role->save();
+            }
+            
+        }
+        
+    }
+    
+    
+});
+
+
+Route::get('/delete', function(){
+    
+    $user = User::findOrFail(1);
+    
+    foreach($user->roles as $role){
+        
+        
+       $role->whereId(2)->delete(); 
+   
+    }
+    
+    
+    
+});
+
+
+
+
+
+
+
+
+
