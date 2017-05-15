@@ -77,6 +77,8 @@ Route::get('/delete', function(){
         
         
        $role->whereId(2)->delete(); 
+        
+        return "Done!";
    
     }
     
